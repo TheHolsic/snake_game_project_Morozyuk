@@ -7,8 +7,8 @@ red = (255, 0, 0)
 class Apple:
     def __init__(self, screen):
         self.screen = screen
-        self.x = 300
-        self.y = 300
+        self.x = random.randint(0, 600)
+        self.y = random.randint(0, 600)
     def draw(self):
         pg.draw.rect(self.screen, red, [self.x, self.y, 10, 10])
 
