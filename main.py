@@ -2,15 +2,16 @@ import pygame as pg
 from player import Player
 from apple import Apple
 
-HEIGHT = 600
-WEIGHT = 600
+HEIGHT = 800
+WEIGHT = 800
 game_over = True
+green = (30, 247, 88)
+black = (0, 0, 0)
 
 class Game:
     def __init__(self):
         pg.init()
         self.screen = pg.display.set_mode((HEIGHT, WEIGHT))
-        self.back_surf = pg.image.load('image.jpg')
         self.clock = pg.time.Clock()
         self.player = Player(self.screen)
         self.Apple = Apple(self.screen)
@@ -23,7 +24,7 @@ class Game:
             self.clock.tick(20)
     
     def draw(self):
-        self.screen.blit(self.back_surf, (0, 0))
+        self.screen.fill(green)
         self.player.draw()
         self.Apple.draw()
 
