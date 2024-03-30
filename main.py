@@ -14,7 +14,7 @@ class Game:
         self.screen = pg.display.set_mode((HEIGHT, WEIGHT))
         self.clock = pg.time.Clock()
         self.player = Player(self.screen)
-        self.Apple = Apple(self.screen)
+        self.Apple = Apple(self.screen, self.player)
 
     def game(self):
         while not self.finish():
@@ -41,6 +41,7 @@ class Game:
 
     def update(self):
         pg.display.update()
+        self.Apple.update()
 
 game = Game()
 game.game()

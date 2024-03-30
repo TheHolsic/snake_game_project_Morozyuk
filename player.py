@@ -8,9 +8,10 @@ class Player:
         self.x = 200
         self.y = 200
         self.side = 'RIGHT'
-
+        self.rect = None
+        
     def draw(self):
-        pg.draw.rect(self.screen, black, [self.x, self.y, 20, 20])
+        self.rect = pg.draw.rect(self.screen, black, [self.x, self.y, 20, 20])
 
     def move (self, event):
         if event[pg.K_LEFT]:
