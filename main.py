@@ -15,6 +15,8 @@ class Game:
         self.clock = pg.time.Clock()
         self.player = Player(self.screen)
         self.Apple = Apple(self.screen, self.player)
+        self.body = [[self.player.x, self.player.y]]
+        self.score = 1
 
     def game(self):
         while not self.finish():
@@ -41,7 +43,13 @@ class Game:
 
     def update(self):
         pg.display.update()
-        self.Apple.update()
+        if self.Apple.spawn():
+            self.score += 1
+            self.body.append([])
+        for i in range(self.body):
+            self.body[len - i] = len - i - 1
+        self.body[0] = [self.player.x, self.player.y]
+        
 
 game = Game()
 game.game()
