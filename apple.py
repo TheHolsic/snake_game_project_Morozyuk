@@ -18,6 +18,7 @@ class Apple:
         if self.apple.colliderect(self.player):
             self.spawn_x = round(random.randrange(0, dis_width - snake_block) / 20.0) * 20.0 
             self.spawn_y = round(random.randrange(0, dis_height - snake_block) / 20.0) * 20.0 
+            return True
         return False
 
 
@@ -25,4 +26,4 @@ class Apple:
         self.apple = pg.draw.rect(self.screen, red, [self.spawn_x, self.spawn_y, 20, 20])
 
     def update(self):
-        pass
+        return self.spawn()
